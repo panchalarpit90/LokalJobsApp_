@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="property"
+            type="com.example.lokaljobs.network.model.Result" />
+
+        <variable
+            name="image"
+            type="com.example.lokaljobs.network.model.Creative" />
+
+        <variable
+            name="primary"
+            type="com.example.lokaljobs.network.model.PrimaryDetails" />
+
+        <variable
+            name="jobtag"
+            type="com.example.lokaljobs.network.model.JobTag" />
+
+        <variable
+            name="contact"
+            type="com.example.lokaljobs.network.model.ContactPreference" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:cardElevation="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_190sdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_view"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:scaleType="fitXY"
+                app:circularflow_radiusInDP="10dp"
+                app:imageUrl="@{image.thumb_url}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                tool:src="@drawable/broken_img" />
+
+            <TextView
+                android:id="@+id/role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/moderustic_semibold"
+                android:text="@{property.job_role}"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toEndOf="@+id/image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tool:text="Hello" />
+
+
+            <ImageView
+                android:id="@+id/icon_go"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/ic_forword"
+                app:layout_constraintStart_toEndOf="@id/role"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/heart_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_heart"
+                app:iconTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/comp_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:fontFamily="@font/moderustic_semibold"
+                android:text="@{property.company_name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintStart_toStartOf="@+id/role"
+                app:layout_constraintTop_toBottomOf="@+id/role"
+                tool:text="desdsssssdsdssdsdsdsdsdsdsd" />
+
+            <TextView
+                android:id="@+id/other_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/moderustic_regular"
+                android:maxLines="2"
+                android:text="@{property.title}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/comp_name"
+                app:layout_constraintTop_toBottomOf="@+id/comp_name"
+                tool:text="it is a sample data" />
+
+            <TextView
+                android:id="@+id/salary_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/moderustic_semibold"
+                android:text="@{primary.salary}"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toStartOf="@+id/other_details"
+                app:layout_constraintTop_toBottomOf="@+id/other_details"
+                tool:text="100-200" />
+
+            <TextView
+                android:id="@+id/vacancies_text"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:background="@drawable/text_shape"
+                android:fontFamily="@font/moderustic_regular"
+                android:gravity="center"
+                android:padding="@dimen/_4sdp"
+                android:text="@{jobtag.value}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintEnd_toEndOf="@+id/image_view"
+                app:layout_constraintStart_toStartOf="@+id/image_view"
+                app:layout_constraintTop_toBottomOf="@+id/image_view"
+                tool:text="10 vacancy" />
+
+            <View
+                android:id="@+id/hori_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@color/darkGray"
+                app:layout_constraintTop_toBottomOf="@id/vacancies_text"
+                tool:layout_editor_absoluteX="19dp" />
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hori_view" />
+
+            <TextView
+                android:id="@+id/location_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/moderustic_regular"
+                android:text="@{primary.place}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toEndOf="@+id/location_icon"
+                app:layout_constraintTop_toBottomOf="@+id/hori_view"
+                tool:text="nalasupara" />
+
+            <ImageView
+                android:id="@+id/bag_icon"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:src="@drawable/ic_work"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location_text" />
+
+            <TextView
+                android:id="@+id/exp_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/moderustic_regular"
+                android:text="@{primary.experience}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toEndOf="@+id/bag_icon"
+                app:layout_constraintTop_toBottomOf="@+id/location_text"
+                tool:text="1-2 yr" />
+
+            <View
+                android:id="@+id/var_view"
+                android:layout_width="1dp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/darkGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hori_view" />
+
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintStart_toStartOf="@id/var_view"
+                app:layout_constraintTop_toBottomOf="@id/hori_view" />
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/moderustic_regular"
+                android:text="@{property.job_hours}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toEndOf="@+id/time_icon"
+                app:layout_constraintTop_toBottomOf="@+id/hori_view"
+                tool:text="fulltime" />
+
+            <ImageView
+                android:id="@+id/book_icon"
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:src="@drawable/ic_book"
+                app:layout_constraintStart_toStartOf="@id/var_view"
+                app:layout_constraintTop_toBottomOf="@id/time_text" />
+
+            <TextView
+                android:id="@+id/book_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/moderustic_regular"
+                android:text="@{primary.qualification}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toEndOf="@+id/book_icon"
+                app:layout_constraintTop_toBottomOf="@+id/time_text"
+                tool:text="1-2 yr" />
+
+            <View
+                android:id="@+id/hori_view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@color/darkGray"
+                app:layout_constraintTop_toBottomOf="@id/bag_icon" />
+
+            <LinearLayout
+                android:id="@+id/btn_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/hori_view2">
+
+                <Button
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/moderustic_semibold"
+                    android:text="Chat"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:icon="@drawable/ic_whatsapp"
+                    app:iconGravity="textStart"
+                    app:iconTint="@null"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Button.50"
+                    app:strokeColor="@color/yellow"
+                    app:whatsappChatLink="@{contact.whatsapp_link}" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/yellow"
+                    android:fontFamily="@font/moderustic_semibold"
+                    android:text="@{property.button_text}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    app:dialerLink="@{property.custom_link}"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Button.50"
+                    tool:text="call" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
